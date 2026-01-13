@@ -3,15 +3,15 @@ import React from "react";
 
 const Logo = () => {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center ">
       <Image
-        src="/logo.png"
+        src="/logo2.png"
         alt="BookNest Logo"
-        width={40}
-        height={40}
+        width={80}
+        height={80}
         priority
       />
-      <span className="text-xl font-bold">BookNest</span>
+      {/* <span className="text-xl font-bold">BookNest</span> */}
     </div>
   );
 };
