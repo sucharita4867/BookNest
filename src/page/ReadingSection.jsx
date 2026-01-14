@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ReadingSection = () => {
   return (
-    <section className="bg-white py-20">
+    <section className=" py-10">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Image Side */}
         <div className="relative w-full h-[350px] md:h-[420px] rounded-xl overflow-hidden shadow-lg">
@@ -32,10 +32,7 @@ const ReadingSection = () => {
             carefully curated for passionate readers like you.
           </p>
 
-          <Link
-            href="/books"
-            className="inline-block mt-6 bg-black text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-gray-800 transition"
-          >
+          <Link href="/books" className="btnPrimary">
             Explore Books
           </Link>
         </div>

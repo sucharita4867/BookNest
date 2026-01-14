@@ -7,7 +7,7 @@ const featuredBooks = [
     title: "The Power of Habit",
     author: "Charles Duhigg",
     price: "₹399",
-    image: "https://i.ibb.co/v61Mnx8p/9781524722746.jpg",
+    image: "https://i.ibb.co/60cRYNy4/download.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const featuredBooks = [
     title: "Deep Work",
     author: "Cal Newport",
     price: "₹499",
-    image: "https://i.ibb.co/0RNt2Jr9/download.jpg",
+    image: "https://i.ibb.co/4ZNM719v/download.jpg",
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const featuredBooks = [
 
 const FeaturedBooks = () => {
   return (
-    <section className="bg-[#FAF7F0] py-16">
+    <section className="bg-[#FAF7F0] py-10">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-12">
@@ -72,10 +72,7 @@ const FeaturedBooks = () => {
 
                 <div className="flex items-center justify-between mt-4">
                   <span className="text-primary font-bold">{book.price}</span>
-                  <Link
-                    href={`/books/${book.id}`}
-                    className="text-sm font-medium text-white bg-black px-4 py-2 rounded hover:bg-gray-800 transition"
-                  >
+                  <Link href={`/books/${book.id}`} className="btnPrimary">
                     View Details
                   </Link>
                 </div>
