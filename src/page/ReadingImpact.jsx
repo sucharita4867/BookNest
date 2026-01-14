@@ -8,15 +8,15 @@ const ReadingImpact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Text Content */}
           <div>
-            <span className="inline-block mb-4 text-sm font-semibold tracking-widest text-gray-500 uppercase">
+            <span className="inline-block mb-3 text-sm font-semibold tracking-widest text-gray-500 uppercase">
               Reading Culture
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0F3D2E] leading-tight">
               Turn Reading into a <br /> Daily Advantage
             </h2>
 
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-600">
               Successful people read consistently—not occasionally. Our platform
               helps you build a sustainable reading habit by giving you access
               to carefully selected, high-quality books.
@@ -29,7 +29,7 @@ const ReadingImpact = () => {
             </p>
 
             {/* Stats */}
-            <div className="mt-10 grid grid-cols-3 gap-6">
+            <div className="mt-7 grid grid-cols-3 gap-6">
               <div>
                 <h3 className="text-3xl font-bold text-gray-900">5k+</h3>
                 <p className="text-sm text-gray-500 mt-1">Books Available</p>
@@ -44,10 +44,7 @@ const ReadingImpact = () => {
               </div>
             </div>
 
-            <Link
-              href="/books"
-              className="inline-block mt-10 bg-black text-white px-8 py-4 rounded-md text-sm font-semibold hover:bg-gray-800 transition"
-            >
+            <Link href="/book" className="inline-block mt-10 btnPrimary">
               Start Reading Today
             </Link>
           </div>

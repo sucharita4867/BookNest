@@ -1,5 +1,7 @@
 import Banner from "@/page/Banner";
+import BookCategories from "@/page/BookCategories";
 import BookTrends from "@/page/BookTrends";
+import CTASection from "@/page/CTASection";
 import FeaturedBooks from "@/page/FeaturedBooks";
 import ReadingImpact from "@/page/ReadingImpact";
 import ReadingSection from "@/page/ReadingSection";
@@ -13,6 +15,8 @@ export default function Home() {
       <ReadingSection />
       <BookTrends />
       <ReadingImpact />
+      <BookCategories />
+      <CTASection />
     </div>
   );
 }

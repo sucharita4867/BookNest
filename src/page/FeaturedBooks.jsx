@@ -37,8 +37,8 @@ const FeaturedBooks = () => {
     <section className="bg-[#FAF7F0] py-10">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <div className="text-center mb-8">
+          <h2 className="mainText">
             Featured Books
           </h2>
           <p className="mt-3 text-gray-600 max-w-xl mx-auto">
@@ -72,7 +72,7 @@ const FeaturedBooks = () => {
 
                 <div className="flex items-center justify-between mt-4">
                   <span className="text-primary font-bold">{book.price}</span>
-                  <Link href={`/books/${book.id}`} className="btnPrimary">
+                  <Link href={`/book/${book.id}`} className="btnPrimary">
                     View Details
                   </Link>
                 </div>

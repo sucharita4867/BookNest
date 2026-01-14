@@ -17,11 +17,11 @@ const ReadingSection = () => {
 
         {/* Text Side */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+          <h2 className="text-3xl md:text-4xl mainText leading-tight">
             Reading Opens the Door to <br /> Endless Knowledge
           </h2>
 
-          <p className="mt-5 text-gray-600 text-lg">
+          <p className="mt-4 text-gray-600 text-lg">
             Books are more than just pages—they are gateways to wisdom,
             imagination, and personal growth. Build a daily reading habit and
             explore ideas that can change your life.
@@ -32,7 +32,7 @@ const ReadingSection = () => {
             carefully curated for passionate readers like you.
           </p>
 
-          <Link href="/books" className="btnPrimary">
+          <Link href="/book" className="mt-4 btnPrimary">
             Explore Books
           </Link>
         </div>

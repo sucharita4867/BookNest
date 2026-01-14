@@ -5,7 +5,7 @@ const Banner = () => {
         <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between ">
           {/* Left Content */}
           <div className=" text-center md:text-left w-[60%]">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl w-[70%]   font-bold leading-tight text-gray-900">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl w-[70%]   font-bold leading-tight text-[#0F3D2E]">
               Selection of the World’s Best Sellers
             </h1>
 
