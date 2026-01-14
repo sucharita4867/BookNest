@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ReadingImpact = () => {
   return (
-    <section className="bg-[#FAF7F0] py-24">
+    <section className="bg-[#FAF7F0] py-10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Text Content */}
