@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Banner = () => {
   return (
     <section className="bg-[#EEF4FB] ">
@@ -16,7 +18,9 @@ const Banner = () => {
               timeless classics.
             </p>
 
-            <button className="mt-4 btnPrimary">Login</button>
+            <Link href="/login" className="mt-4 btnPrimary">
+              Login
+            </Link>
           </div>
 
           {/* Right Image */}
