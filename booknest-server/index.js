@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { MongoClient, ServerApiVersion, ObjectId } from "mongodb";
 
 dotenv.config();
 
@@ -22,9 +22,9 @@ const client = new MongoClient(uri, {
 async function connectDB() {
   try {
     await client.connect();
-    console.log(" MongoDB Connected");
+    console.log("✅ MongoDB Connected");
   } catch (error) {
-    console.error(" MongoDB Error:", error);
+    console.error("❌ MongoDB Error:", error);
   }
 }
 connectDB();
@@ -34,35 +34,55 @@ app.get("/", (req, res) => {
   res.send("BookNest Server is running");
 });
 
-// GET all books
-app.get("/api/books", async (req, res) => {
-  const books = await client
-    .db(process.env.DB_NAME)
-    .collection("books")
-    .find()
-    .toArray();
+// ✅ GET all books
+app.get("/book", async (req, res) => {
+  try {
+    const books = await client
+      .db(process.env.DB_NAME)
+      .collection("book")
+      .find()
+      .toArray();
 
-  res.json(books);
+    res.json(books);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
-// GET single book
-app.get("/api/books/:id", async (req, res) => {
-  const book = await client
-    .db(process.env.DB_NAME)
-    .collection("books")
-    .findOne({ _id: new ObjectId(req.params.id) });
+// ✅ GET single book
+app.get("/book/:id", async (req, res) => {
+  try {
+    const book = await client
+      .db(process.env.DB_NAME)
+      .collection("book")
+      .findOne({ _id: new ObjectId(req.params.id) });
 
-  res.json(book);
+    res.json(book);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
-// ADD book
-app.post("/api/books", async (req, res) => {
-  const result = await client
-    .db(process.env.DB_NAME)
-    .collection("books")
-    .insertOne(req.body);
+app.post("/book", async (req, res) => {
+  try {
+    const bookData = {
+      ...req.body, // 👈 from form
+      rating: 0, // 👈 server added
+      pages: 0,
+      publisher: "Unknown",
+      stock: 10,
+      createdAt: new Date(),
+    };
 
-  res.json(result);
+    const result = await client
+      .db(process.env.DB_NAME)
+      .collection("book")
+      .insertOne(bookData);
+
+    res.status(201).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
