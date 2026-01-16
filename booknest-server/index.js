@@ -34,13 +34,14 @@ app.get("/", (req, res) => {
   res.send("BookNest Server is running");
 });
 
-// ✅ GET all books
 app.get("/book", async (req, res) => {
   try {
     const books = await client
       .db(process.env.DB_NAME)
       .collection("book")
       .find()
+
+      .sort({ createdAt: -1 })
       .toArray();
 
     res.json(books);
@@ -49,7 +50,22 @@ app.get("/book", async (req, res) => {
   }
 });
 
-// ✅ GET single book
+app.get("/book/recent", async (req, res) => {
+  try {
+    const books = await client
+      .db(process.env.DB_NAME)
+      .collection("book")
+      .find({ featured: true })
+      .sort({ createdAt: -1 })
+      .limit(4)
+      .toArray();
+
+    res.json(books);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.get("/book/:id", async (req, res) => {
   try {
     const book = await client
@@ -66,11 +82,7 @@ app.get("/book/:id", async (req, res) => {
 app.post("/book", async (req, res) => {
   try {
     const bookData = {
-      ...req.body, // 👈 from form
-      rating: 0, // 👈 server added
-      pages: 0,
-      publisher: "Unknown",
-      stock: 10,
+      ...req.body,
       createdAt: new Date(),
     };
 
@@ -87,5 +99,5 @@ app.post("/book", async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(` Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
