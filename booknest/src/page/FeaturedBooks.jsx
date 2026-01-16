@@ -1,8 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { books } from "@/data/books";
 
-const FeaturedBooks = () => {
+const FeaturedBooks = async () => {
+  const res = await fetch("http://localhost:5000/book/recent", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    return <p className="text-center py-10">Failed to load books</p>;
+  }
+
+  const books = await res.json();
+
   return (
     <section className="bg-[#FAF7F0] py-10">
       <div className="max-w-7xl mx-auto px-4">
@@ -13,12 +22,15 @@ const FeaturedBooks = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {books
-            .filter((book) => book.featured)
-            .map((book) => (
+        {books.length === 0 ? (
+          <p className="text-center text-gray-500">
+            No featured books available
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {books.map((book) => (
               <div
-                key={book.id}
+                key={book._id}
                 className="group bg-white rounded-xl shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
               >
                 <div className="relative h-56 w-full overflow-hidden rounded-t-xl">
@@ -34,20 +46,19 @@ const FeaturedBooks = () => {
                   <h3 className="text-lg font-semibold group-hover:text-[#0F3D2E]">
                     {book.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">
-                    by {book.author}
-                  </p>
+                  <p className="text-sm text-gray-500 mt-1">by {book.author}</p>
 
-                  <div className="flex justify-between mt-4">
+                  <div className="flex justify-between items-center mt-4">
                     <span className="font-bold">{book.price}</span>
-                    <Link href={`/book/${book.id}`} className="btnPrimary">
+                    <Link href={`/book/${book._id}`} className="btnPrimary">
                       View Details
                     </Link>
                   </div>
                 </div>
               </div>
             ))}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

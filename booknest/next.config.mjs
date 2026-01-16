@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["i.ibb.co"],
+    domains: ["encrypted-tbn0.gstatic.com", "i.ibb.co"],
   },
-  /* config options here */
 };
 
 export default nextConfig;

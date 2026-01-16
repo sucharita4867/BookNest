@@ -22,7 +22,7 @@ const CTASection = () => {
           </Link>
 
           <Link
-            href="/register"
+            href="/login"
             className="btnPrimary hover:bg-white hover:text-black transition"
           >
             Join Now
