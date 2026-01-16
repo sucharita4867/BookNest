@@ -12,6 +12,10 @@ const AddBookForm = () => {
     description: "",
     category: "",
     featured: false,
+    rating: "",
+    pages: "",
+    publisher: "",
+    stock: "",
   });
 
   const handleChange = (e) => {
@@ -31,7 +35,12 @@ const AddBookForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          rating: Number(formData.rating),
+          pages: Number(formData.pages),
+          stock: Number(formData.stock),
+        }),
       });
 
       const data = await res.json();
@@ -54,6 +63,10 @@ const AddBookForm = () => {
         description: "",
         category: "",
         featured: false,
+        rating: "",
+        pages: "",
+        publisher: "",
+        stock: "",
       });
     } catch (error) {
       Swal.fire({
@@ -136,6 +149,50 @@ const AddBookForm = () => {
         required
       />
 
+      {/* Extra Fields – 2 lines, 4 inputs */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="number"
+          step="0.1"
+          name="rating"
+          placeholder="Rating (e.g. 4.5)"
+          className="input input-bordered w-full"
+          value={formData.rating}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="number"
+          name="pages"
+          placeholder="Total Pages"
+          className="input input-bordered w-full"
+          value={formData.pages}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="text"
+          name="publisher"
+          placeholder="Publisher Name"
+          className="input input-bordered w-full"
+          value={formData.publisher}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="number"
+          name="stock"
+          placeholder="Stock Quantity"
+          className="input input-bordered w-full"
+          value={formData.stock}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
       {/* Featured */}
       <label className="flex items-center gap-2">
         <input
@@ -148,6 +205,7 @@ const AddBookForm = () => {
         <span>Mark as Featured</span>
       </label>
 
+      {/* Submit */}
       <button
         type="submit"
         className="inline-block bg-[#0F3D2E] btn text-white px-6 py-2 rounded-full text-base font-medium hover:bg-[#0C2F24] transition w-full mt-4"
