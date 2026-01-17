@@ -46,7 +46,7 @@ const BookTrends = () => {
                 </p>
 
                 <Link
-                  href="/books"
+                  href="/book"
                   className="inline-block mt-4 text-sm font-semibold underline underline-offset-4"
                 >
                   Read More
