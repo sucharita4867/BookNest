@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BookNest
 
-## Getting Started
+## Project Description
 
-First, run the development server:
+BookNest is a simple full-stack book management application built using **Next.js (App Router)** and **Express.js**.  
+Users can view books publicly, see book details, and add new books after login.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Site
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Live URL: 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## GitHub Repository
 
-To learn more about Next.js, take a look at the following resources:
+GitHub Repo: https://github.com/sucharita4867/BookNest
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Login Credentials (Mock)
 
-## Deploy on Vercel
+Email: admin@example.com  
+Password: 123456@A
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technologies Used
+
+- Next.js 15/16 (App Router)
+- React
+- Tailwind CSS
+- Express.js
+- MongoDB
+- SweetAlert2
+
+---
+
+## Features Implemented
+
+- Public landing page with 7 sections
+- Mock authentication using hardcoded credentials
+- Cookie-based authentication
+- Public book list page
+- Public book details page
+- Protected add book page
+- Express API for fetching and adding books
+- SweetAlert notification on successful book creation
+
+---
+
+## Routes
+
+- `/` → Landing Page (Public)
+- `/login` → Login Page (Public)
+- `/book` → Book List Page (Public)
+- `/book/[id]` → Book Details Page (Public)
+- `/addBook` → Add Book Page (Protected)
+
+---
+
+## Setup Instructions
+
+1. Clone the repository
+2. Install dependencies using `npm install`
+3. Add MongoDB credentials in `.env`
+4. Run backend server
+5. Run frontend using `npm run dev`
+
+---
+
+## Notes
+
+- Google login was optional and not implemented
+- Mock authentication fully meets the task requirements

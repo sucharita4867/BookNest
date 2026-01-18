@@ -7,35 +7,10 @@ import Logo from "./Logo";
 
 const Navbar = () => {
   const router = useRouter();
-  const pathname = usePathname(); // ✅ route change detect
+  const pathname = usePathname();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // 🔍 Cookie check (on load + route change)
-  // useEffect(() => {
-  //   const authCookie =
-  //     typeof document !== "undefined" && document.cookie.includes("auth=true");
-
-  //   // ✅ only update state if value actually changed
-  //   setIsLoggedIn((prev) => {
-  //     if (prev !== authCookie) {
-  //       return authCookie;
-  //     }
-  //     return prev;
-  //   });
-  // }, [pathname]);
-
-  // useEffect(() => {
-  //   const checkAuth = () => {
-  //     const auth =
-  //       typeof document !== "undefined" &&
-  //       document.cookie.includes("auth=true");
-
-  //     setIsLoggedIn(auth);
-  //   };
-
-  //   checkAuth(); // 🔥 first load
-  // }, []);
   useEffect(() => {
     const auth =
       typeof document !== "undefined" && document.cookie.includes("auth=true");
@@ -43,7 +18,6 @@ const Navbar = () => {
     setIsLoggedIn(auth);
   }, [pathname]);
 
-  // 🚪 Logout handler
   const handleLogout = () => {
     document.cookie = "auth=; path=/; max-age=0";
     setIsLoggedIn(false);
@@ -52,7 +26,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#FAF7F0]">
-      <div className="navbar w-11/12 mx-auto text-black border border-black">
+      <div className="navbar w-11/12 mx-auto text-black">
         {/* Navbar Start */}
         <div className="navbar-start">
           <div className="dropdown">
