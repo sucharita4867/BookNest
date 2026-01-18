@@ -7,7 +7,6 @@ const BookPage = async () => {
   });
 
   const books = await res.json();
-  // console.log(books);
 
   return (
     <div className="bg-[#FAF7F0] min-h-screen py-10">
