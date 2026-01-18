@@ -15,7 +15,7 @@ Live URL:
 
 ## GitHub Repository
 
-GitHub Repo: https://github.com/sucharita4867/BookNest
+GitHub Repo: https://github.com/sucharita4867/BookNest/tree/main
 
 ---
 
