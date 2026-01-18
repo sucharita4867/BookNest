@@ -30,7 +30,7 @@ const AddBookForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/book", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/book`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
