@@ -9,13 +9,13 @@ Users can view books publicly, see book details, and add new books after login.
 
 ## Live Site
 
-Live URL: 
+Live URL:
 
 ---
 
 ## GitHub Repository
 
-GitHub Repo: https://github.com/sucharita4867/BookNest
+GitHub Repo: https://github.com/sucharita4867/BookNest/tree/main
 
 ---
 

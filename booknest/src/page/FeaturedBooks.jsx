@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FeaturedBooks = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/book/recent`, {
+  // console.log(process.env.NEXT_PUBLIC_API_URL);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/book/recent`, {
     cache: "no-store",
   });
 
