@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { FaFacebookF, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
 
 const Footer = () => {
@@ -10,7 +11,9 @@ const Footer = () => {
         {/* Brand */}
         <div>
           {/* <h2 className="text-2xl font-bold text-white">BookVerse</h2> */}
-          <Logo/>
+          <Link href="/">
+            <Logo />
+          </Link>
           <p className="mt-3 text-sm leading-relaxed">
             BookVerse is your trusted online library to explore, discover, and
             enjoy hand-picked books for learning, growth, and inspiration.
@@ -60,7 +63,7 @@ const Footer = () => {
                 hover:scale-110 hover:text-white hover:border-white
               "
             >
-              <FaFacebookF size={18} />
+              <FaXTwitter size={18} />
             </a>
 
             <a

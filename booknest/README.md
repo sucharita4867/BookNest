@@ -9,7 +9,7 @@ Users can view books publicly, see book details, and add new books after login.
 
 ## Live Site
 
-Live URL:
+Live URL: https://book-nest-ten-topaz.vercel.app
 
 ---
 
