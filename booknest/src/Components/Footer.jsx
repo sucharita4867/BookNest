@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
+import { FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -63,7 +64,7 @@ const Footer = () => {
                 hover:scale-110 hover:text-white hover:border-white
               "
             >
-              <FaXTwitter size={18} />
+              <FaFacebook size={18} />
             </a>
 
             <a
@@ -77,7 +78,7 @@ const Footer = () => {
                 hover:scale-110 hover:text-white hover:border-white
               "
             >
-              <FaTwitter size={18} />
+              <FaXTwitter size={18} />
             </a>
 
             <a
