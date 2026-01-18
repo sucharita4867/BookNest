@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const BookPage = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/book`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/book`, {
     cache: "no-store",
   });
 

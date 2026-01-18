@@ -30,7 +30,7 @@ const AddBookForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/book`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/book`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

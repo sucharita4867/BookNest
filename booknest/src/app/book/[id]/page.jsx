@@ -4,7 +4,7 @@ import Link from "next/link";
 const BookDetails = async ({ params }) => {
   const { id } = await params;
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/book/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/book/${id}`, {
     cache: "no-store",
   });
 
