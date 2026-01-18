@@ -6,17 +6,11 @@ import { MongoClient, ServerApiVersion, ObjectId } from "mongodb";
 dotenv.config();
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 
+// MongoDB connection
 const uri = process.env.MONGODB_URI;
-
-if (!uri) {
-  console.error("MONGODB_URI not found in environment variables");
-  process.exit(1);
-}
-
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -25,51 +19,44 @@ const client = new MongoClient(uri, {
   },
 });
 
-let db;
+let isConnected = false;
 
 async function connectDB() {
-  if (db) return db;
+  if (isConnected) return;
 
   try {
     await client.connect();
-    db = client.db(process.env.DB_NAME);
-    console.log("MongoDB Connected");
-    return db;
+    isConnected = true;
+    console.log(" MongoDB Connected");
   } catch (error) {
-    console.error("MongoDB Connection Failed:", error);
-    process.exit(1);
+    console.error(" MongoDB Error:", error);
   }
 }
-
-// connect once on startup
 connectDB();
 
-// Health check
+// Test route
 app.get("/", (req, res) => {
   res.send("BookNest Server is running");
 });
 
-// Get all books
 app.get("/book", async (req, res) => {
   try {
-    const database = await connectDB();
-    const books = await database
+    const books = await client
+      .db(process.env.DB_NAME)
       .collection("book")
       .find()
       .sort({ createdAt: -1 })
       .toArray();
-
     res.json(books);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Get recent featured books
 app.get("/book/recent", async (req, res) => {
   try {
-    const database = await connectDB();
-    const books = await database
+    const books = await client
+      .db(process.env.DB_NAME)
       .collection("book")
       .find({ featured: true })
       .sort({ createdAt: -1 })
@@ -82,17 +69,16 @@ app.get("/book/recent", async (req, res) => {
   }
 });
 
-// Get single book by ID
 app.get("/book/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
     if (!ObjectId.isValid(id)) {
-      return res.status(400).json({ message: "Invalid book ID" });
+      return res.status(400).json({ message: "Invalid book id" });
     }
 
-    const database = await connectDB();
-    const book = await database
+    const book = await client
+      .db(process.env.DB_NAME)
       .collection("book")
       .findOne({ _id: new ObjectId(id) });
 
@@ -106,17 +92,17 @@ app.get("/book/:id", async (req, res) => {
   }
 });
 
-// Add new book
 app.post("/book", async (req, res) => {
   try {
-    const database = await connectDB();
-
     const bookData = {
       ...req.body,
       createdAt: new Date(),
     };
 
-    const result = await database.collection("book").insertOne(bookData);
+    const result = await client
+      .db(process.env.DB_NAME)
+      .collection("book")
+      .insertOne(bookData);
 
     res.status(201).json(result);
   } catch (error) {
@@ -124,9 +110,7 @@ app.post("/book", async (req, res) => {
   }
 });
 
-//  SERVER START
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => {
-  console.log(` Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
