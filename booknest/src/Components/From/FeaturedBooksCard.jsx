@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const FeaturedBooksCard = ({ books }) => {
   if (!Array.isArray(books) || books.length === 0) {
@@ -11,20 +12,42 @@ const FeaturedBooksCard = ({ books }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: { staggerChildren: 0.15 },
+        },
+      }}
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+    >
       {books.map((book) => (
-        <div
+        <motion.div
           key={book._id}
-          className="group bg-white rounded-xl shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
+          className="group bg-white rounded-xl shadow-md hover:shadow-2xl"
         >
-          <div className="relative h-56 w-full overflow-hidden rounded-t-xl">
+          {/* Image animation */}
+          <motion.div
+            className="relative h-56 w-full overflow-hidden rounded-t-xl"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.5 }}
+          >
             <Image
               src={book.image}
               alt={book.title}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-cover"
             />
-          </div>
+          </motion.div>
 
           <div className="p-5">
             <h3 className="text-lg font-semibold group-hover:text-[#0F3D2E]">
@@ -39,9 +62,9 @@ const FeaturedBooksCard = ({ books }) => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
