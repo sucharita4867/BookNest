@@ -56,7 +56,7 @@ const FeaturedBooksCard = ({ books }) => {
             <p className="text-sm text-gray-500 mt-1">by {book.author}</p>
 
             <div className="flex justify-between items-center mt-4">
-              <span className="font-bold">{book.price}</span>
+              <span className="font-bold">₹{book.price}</span>
               <Link href={`/book/${book._id}`} className="btnPrimary">
                 View Details
               </Link>
