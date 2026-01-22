@@ -14,7 +14,8 @@ const FeaturedBooksCard = ({ books }) => {
   return (
     <motion.div
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true }}
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -28,35 +29,40 @@ const FeaturedBooksCard = ({ books }) => {
         <motion.div
           key={book._id}
           variants={{
-            hidden: { opacity: 0, y: 40 },
+            hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0 },
           }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.4 }}
+          whileHover={{ y: -8 }} // ✅ lift only
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="group bg-white rounded-xl shadow-md hover:shadow-2xl"
         >
-          {/* Image animation */}
-          <motion.div
-            className="relative h-56 w-full overflow-hidden rounded-t-xl"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Image
-              src={book.image}
-              alt={book.title}
-              fill
-              className="object-cover"
-            />
-          </motion.div>
+          {/* Image zoom only */}
+          <div className="relative h-56 w-full overflow-hidden rounded-t-xl">
+            <motion.div
+              whileHover={{ scale: 1.12 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="h-full w-full"
+            >
+              <Image
+                src={book.image}
+                alt={book.title}
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
 
+          {/* Content stays stable */}
           <div className="p-5">
-            <h3 className="text-lg font-semibold group-hover:text-[#0F3D2E]">
+            <h3 className="text-lg font-semibold group-hover:text-[#0F3D2E] transition-colors">
               {book.title}
             </h3>
+
             <p className="text-sm text-gray-500 mt-1">by {book.author}</p>
 
             <div className="flex justify-between items-center mt-4">
-              <span className="font-bold">₹{book.price}</span>
+              <span className="font-bold text-[#0F3D2E]">₹{book.price}</span>
+
               <Link href={`/book/${book._id}`} className="btnPrimary">
                 View Details
               </Link>
