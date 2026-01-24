@@ -30,7 +30,7 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-6 text-gray-800 text-lg max-w-2xl mx-auto"
+          className="mt-4 text-gray-800 text-lg max-w-2xl mx-auto"
         >
           Discover thousands of books across different categories. Build a daily
           reading habit and explore knowledge that truly matters to you.
@@ -42,7 +42,7 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href="/book" className="btnPrimary">
