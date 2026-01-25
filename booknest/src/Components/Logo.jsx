@@ -11,7 +11,6 @@ const Logo = () => {
         height={80}
         priority
       />
-      {/* <span className="text-xl font-bold">BookNest</span> */}
     </div>
   );
 };
