@@ -27,7 +27,6 @@ const BookDetailsClient = ({ book }) => {
   return (
     <div className="bg-[#FAF7F0] min-h-screen py-10 ">
       <div className="max-w-6xl mx-auto">
-        {/* Back */}
         <Link
           href="/book"
           className="inline-block mb-4 text-sm font-medium text-[#0F3D2E] hover:underline"
@@ -36,7 +35,6 @@ const BookDetailsClient = ({ book }) => {
         </Link>
 
         <div className="bg-white rounded-2xl shadow-2xl p-4 lg:p-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Image */}
           <div className="relative h-[450px] rounded-xl overflow-hidden">
             <Image
               src={book.image}
@@ -46,7 +44,6 @@ const BookDetailsClient = ({ book }) => {
             />
           </div>
 
-          {/* Info */}
           <div className="flex flex-col">
             <h1 className="text-3xl lg:text-4xl font-bold text-[#0F3D2E]">
               {book.title}
@@ -65,7 +62,6 @@ const BookDetailsClient = ({ book }) => {
               {book.description}
             </p>
 
-            {/* Meta Info */}
             <div className="mt-6 grid grid-cols-2 gap-4 text-sm">
               <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg">
                 <FaLayerGroup className="text-[#0F3D2E]" />
@@ -94,7 +90,6 @@ const BookDetailsClient = ({ book }) => {
             </div>
 
             <button
-              // onClick={handleBuy}
               className="mt-8 btnPrimary px-6 py-3 w-fit"
               onClick={handleBuy}
             >
