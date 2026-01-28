@@ -11,13 +11,24 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  // 🔹 Login check
   useEffect(() => {
     const auth =
       typeof document !== "undefined" && document.cookie.includes("auth=true");
-
     setIsLoggedIn(auth);
   }, [pathname]);
+
+  // 🔹 Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLogout = () => {
     document.cookie = "auth=; path=/; max-age=0";
@@ -26,8 +37,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#FAF7F0]">
-      <div className="navbar w-11/12 mx-auto text-black">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-[#FAF7F0] shadow-md" : "bg-[#FAF7F0]"
+      }`}
+    >
+      <div className="navbar w-11/12 mx-auto text-black h-16">
+        {/* Navbar Start */}
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,7 +64,7 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
+            <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow top-14">
               <li>
                 <Link href="/">Home</Link>
               </li>
@@ -71,7 +87,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Navbar Center (Desktop) */}
+        {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
@@ -104,7 +120,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
