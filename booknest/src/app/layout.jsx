@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <Navbar className="" />
 
         {/* Page content / Banner (Outlet equivalent) */}
-        <main className=" bg-[#FAF7F0]">{children}</main>
+        <main className=" bg-[#FAF7F0] pt-16">{children}</main>
 
         {/* Footer */}
         <Footer />
