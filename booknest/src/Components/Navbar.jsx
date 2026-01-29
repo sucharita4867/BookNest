@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const router = useRouter();
@@ -13,14 +14,12 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // 🔹 Login check
   useEffect(() => {
     const auth =
       typeof document !== "undefined" && document.cookie.includes("auth=true");
     setIsLoggedIn(auth);
   }, [pathname]);
 
-  // 🔹 Scroll shadow effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -83,13 +82,7 @@ const Navbar = () => {
           </div>
 
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo2.png"
-              alt="BookNest Logo"
-              width={60}
-              height={60}
-              priority
-            />
+            <Logo />
           </Link>
         </div>
 
