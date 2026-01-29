@@ -4,7 +4,11 @@
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Logo from "./Logo";
+// import Logo from "./Logo";
+import Logo1 from "/logo2.png";
+import Image from "next/image";
+import React from "react";
+// import Logo from "logo2.png";
 
 const Navbar = () => {
   const router = useRouter();
@@ -83,7 +87,14 @@ const Navbar = () => {
           </div>
 
           <Link href="/" className="text-xl">
-            <Logo />
+            <Image
+              src={Logo1}
+              alt="BookNest Logo"
+              width={80}
+              height={80}
+              priority
+            />
+            {/* <Logo /> */}
           </Link>
         </div>
 
