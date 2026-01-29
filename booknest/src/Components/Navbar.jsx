@@ -82,16 +82,14 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* ✅ LOGO (Correct way) */}
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/logo2.png"
               alt="BookNest Logo"
-              width={50}
-              height={50}
+              width={60}
+              height={60}
               priority
             />
-            {/* <span className="font-bold text-xl text-[#0F3D2E]">BookNest</span> */}
           </Link>
         </div>
 
