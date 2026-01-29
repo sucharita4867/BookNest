@@ -2,13 +2,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-// import Logo from "./Logo";
-import Logo1 from "/logo2.png";
-import Image from "next/image";
-import React from "react";
-// import Logo from "logo2.png";
 
 const Navbar = () => {
   const router = useRouter();
@@ -24,7 +20,7 @@ const Navbar = () => {
     setIsLoggedIn(auth);
   }, [pathname]);
 
-  // 🔹 Scroll effect
+  // 🔹 Scroll shadow effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -49,6 +45,7 @@ const Navbar = () => {
       <div className="navbar w-11/12 mx-auto text-black h-16">
         {/* Navbar Start */}
         <div className="navbar-start">
+          {/* Mobile Menu */}
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -67,7 +64,6 @@ const Navbar = () => {
               </svg>
             </div>
 
-            {/* Mobile Menu */}
             <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow top-14">
               <li>
                 <Link href="/">Home</Link>
@@ -86,15 +82,16 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <Link href="/" className="text-xl">
+          {/* ✅ LOGO (Correct way) */}
+          <Link href="/" className="flex items-center gap-2">
             <Image
-              src={Logo1}
+              src="/logo2.png"
               alt="BookNest Logo"
-              width={80}
-              height={80}
+              width={50}
+              height={50}
               priority
             />
-            {/* <Logo /> */}
+            {/* <span className="font-bold text-xl text-[#0F3D2E]">BookNest</span> */}
           </Link>
         </div>
 
