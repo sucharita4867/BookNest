@@ -28,7 +28,7 @@ Password: 123456@A
 
 ## Technologies Used
 
-- Next.js 15/16 (App Router)
+- Next.js 15/16 [App Router]
 - React
 - Tailwind CSS
 - Express.js
