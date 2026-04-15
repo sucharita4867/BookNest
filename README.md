@@ -58,7 +58,7 @@ Password: 123456@A
 - `/book/[id]` → Book Details Page (Public)
 - `/addBook` → Add Book Page (Protected)
 
----
+--
 
 ## Setup Instructions
 
