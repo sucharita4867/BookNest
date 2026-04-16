@@ -11,20 +11,20 @@ Users can view books publicly, see book details, and add new books after login.
 
 Live URL: https://book-nest-ten-topaz.vercel.app
 
----
+--
 
 ## GitHub Repository
 
 GitHub Repo: https://github.com/sucharita4867/BookNest/tree/main
 
----
+--
 
 ## Login Credentials (Mock)
 
 Email: admin@example.com  
 Password: 123456@A
 
----
+--
 
 ## Technologies Used
 
