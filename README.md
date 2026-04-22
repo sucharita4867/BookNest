@@ -68,6 +68,11 @@ Password: 123456@A
 4. Run backend server
 5. Run frontend using `npm run dev`
 
+--
+
+## clone git
+https://github.com/sucharita4867/BookNest.git
+
 ---
 
 ## Notes
