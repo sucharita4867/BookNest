@@ -68,14 +68,12 @@ Password: 123456@A
 4. Run backend server
 5. Run frontend using `npm run dev`
 
---
-
-## clone git
-https://github.com/sucharita4867/BookNest.git
-
 ---
 
 ## Notes
 
 - Google login was optional and not implemented
 - Mock authentication fully meets the task requirements
+---
+- ## clone git
+https://github.com/sucharita4867/BookNest.git
