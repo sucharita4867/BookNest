@@ -26,7 +26,6 @@ const BookPage = async () => {
   flex flex-col
     "
             >
-              {/* Image */}
               <div className="relative h-56 w-full overflow-hidden rounded-t-xl">
                 <Image
                   src={book.image}
@@ -40,7 +39,6 @@ const BookPage = async () => {
                 />
               </div>
 
-              {/* Content */}
               <div className="p-4 flex flex-col flex-1">
                 <h3
                   className="
