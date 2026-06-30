@@ -74,6 +74,8 @@ Password: 123456@A
 
 - Google login was optional and not implemented
 - Mock authentication fully meets the task requirements
+
 ---
+
 - ## clone git
-https://github.com/sucharita4867/BookNest.git
+  https://github.com/sucharita4867/BookNest.git
